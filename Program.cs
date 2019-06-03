@@ -6,16 +6,27 @@ using System.Threading.Tasks;
 
 namespace WIeze_Hanoi
 {
+    /*
+     * All comments added later, they may not proper describe methods. 
+     * Make an issue if you have found a bug.
+     */
     class Program
     {
         static void Main(string[] args)
         {
+            // Starts Hanoi Towers.
             Hanoi.MainTask();
         }
     }
 
+    /// <summary>
+    /// Additional class to call method again if repeat is needed.
+    /// </summary>
     public class Hanoi
     {
+        /// <summary>
+        /// Body containing hanoi tower methods and algorithms.
+        /// </summary>
         public static void MainTask()
         {
             try
@@ -113,6 +124,20 @@ namespace WIeze_Hanoi
                 ReplyTask();
             }
         }
+
+        /// <summary>
+        /// Move block on block with higher radius.
+        /// </summary>
+        /// <param name="n">Number of blocks.</param>
+        /// <param name="stackA">First stack</param>
+        /// <param name="stackB">Second stack</param>
+        /// <param name="stackC">Third stack</param>
+        /// <param name="arrayA">Additional array to display towers.</param>
+        /// <param name="arrayB">Additional array to display towers.</param>
+        /// <param name="arrayC">Additional array to display towers.</param>
+        /// <param name="copyStack">Copy of the stack.</param>
+        /// <param name="x"></param>
+        /// <param name="t"></param>
         public static void HanoiMove(int n, Stack<string> stackA, Stack<string> stackB, Stack<string> stackC, string[] arrayA, string[] arrayB, string[] arrayC, Stack<string> copyStack, int x, int t)
         {
             if (n > 0)
@@ -140,6 +165,11 @@ namespace WIeze_Hanoi
             } 
         }
 
+        /// <summary>
+        /// Generate display of towers.
+        /// </summary>
+        /// <param name="n">Number of blocks.</param>
+        /// <param name="stackA">For which stack is display generated.</param>
         public static void GenerateBlocks(int n, Stack<string> stackA)
         {
             string block = "█";
@@ -157,6 +187,11 @@ namespace WIeze_Hanoi
                 stackA.Push(helpingStack.Pop());
             }
         }
+        /// <summary>
+        /// Generates empty rows.
+        /// </summary>
+        /// <param name="i">Number of rows</param>
+        /// <returns>String with empty rows</returns>
         public static string GenerateEmpty(int i)
         {
             string empty = " ";
@@ -167,6 +202,11 @@ namespace WIeze_Hanoi
             }
             return emptyLong;
         }
+        /// <summary>
+        /// Generates empty list.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="stack"></param>
         public static void EmptyList(int n, Stack<string> stack)
         {
             string block = " ";
@@ -179,6 +219,12 @@ namespace WIeze_Hanoi
                 stack.Push(blockResult);
             }
         }
+        /// <summary>
+        /// Generates empty list.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="letter"></param>
+        /// <returns></returns>
         public static string EmptyList(int n, string letter)
         {
             string block = " ";
@@ -192,11 +238,17 @@ namespace WIeze_Hanoi
             return blockResult;
         }
 
+        /// <summary>
+        /// Horizontal Line.
+        /// </summary>
         public static void HorizontalLine()
         {
             Console.WriteLine("\n————————————————————————————————————————————");
         }
 
+        /// <summary>
+        /// Method asks user if task should be finished or repeat it.
+        /// </summary>
         public static void ReplyTask()
         {
             char answer = 'x';
